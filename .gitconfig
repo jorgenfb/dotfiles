@@ -1,0 +1,23 @@
+[user]
+  name = Jørgen Borgesen
+  email = joergen.borgesen@gmail.com
+[push]
+  default = simple
+[core]
+  excludesfile = /home/jorgen/.gitignore
+[pull]
+  rebase = true
+[merge "npm-merge-driver"]
+  name = automatically merge npm lockfiles
+  driver = npx npm-merge-driver merge %A %O %B %P
+[alias]
+  tree = log --oneline --decorate --all --graph
+[credential]
+  helper = store
+[url "https://git.asmgmt.hilti.com/"]
+  insteadOf = git@git.asmgmt.hilti.com:
+[filter "lfs"]
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f

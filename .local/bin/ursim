@@ -1,0 +1,3 @@
+#!/bin/sh
+
+vboxmanage startvm URSim3.9.1.64192

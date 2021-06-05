@@ -1,0 +1,20 @@
+#!/bin/bash
+
+N=$1
+CMD="${@:2}"
+
+echo "Running command '$CMD' $N times"
+
+COUNT=0
+ERRORS=0
+while [  $COUNT -lt $N ]; do
+   echo "Execution number $COUNT:"
+   $CMD
+   if [ $? -gt 0 ];then
+      let ERRORS=ERRORS+1
+   fi
+   let COUNT=COUNT+1
+done
+
+PERCENTAGE=$((100*$ERRORS/$N))
+echo "Failed $ERRORS out of $N times ($PERCENTAGE %)"
