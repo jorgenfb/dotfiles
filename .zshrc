@@ -22,7 +22,14 @@ BULLETTRAIN_PROMPT_ADD_NEWLINE=false
 BULLETTRAIN_PROMPT_ORDER=(status custom dir git hg cmd_exec_time)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=2"  # Green autosuggestion text.
 
-plugins=(gitfast thefuck zsh-autosuggestions zsh-256color)
+# I have systems that does not support thefuck command
+if [[ -z thefuck ]]; then
+	plugins=(gitfast thefuck zsh-autosuggestions zsh-256color)
+else
+	plugins=(gitfast zsh-autosuggestions zsh-256color)
+fi
+
+
 
 source "$ZSH/oh-my-zsh.sh"
 
@@ -82,4 +89,7 @@ down-line-or-local-history() {
     zle set-local-history 0
 }
 zle -N down-line-or-local-history
+
+
+source /home/jorgen/.config/broot/launcher/bash/br
 

@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-export CC=clang
-export CXX=clang++
-export PATH="/usr/lib/ccache:$PATH"
 export ZSH=$HOME/.oh-my-zsh
 
 # shellcheck disable=SC2016
@@ -31,12 +28,7 @@ export EDITOR="$VISUAL"
 #############################################
 export NLINK_COMPILE_LEVEL=superstrict
 
-if [[ -z "$EXTRA_SOURCE" ]]; then
-  # Assume running on host machine
-  source "/opt/ros/kinetic/setup.zsh"
-  source /home/jorgen/dev/baktus/devel/setup.zsh
-  export ROS_LANG_DISABLE=genjava
-else
+if (( ${+EXTRA_SOURCE} )); then
   # Used inside dev container to autosource
   source "/opt/ros/$ROS_DISTRO/setup.zsh"
   source $EXTRA_SOURCE

@@ -3,31 +3,59 @@
 set -e
 shopt -s expand_aliases
 
+#
+# Add system repositories
+#
+sudo add-apt-repository ppa:peek-developers/stable -y
+
+# Docker
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Microsoft vscode
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+rm -f packages.microsoft.gpg
+
 # Install system packages
 sudo apt-get update -qq
 sudo apt-get upgrade -qq
 sudo apt-get install -qq \
     apt-transport-https \
     build-essential \
-    ccache \
+	bpython \
     clang \
     clang-format \
     clang-tidy \
     cloc \
     cmake \
     cmake-curses-gui \
+    code \
+	containerd.io \
     curl \
+	diodon \
+	docker-ce \
+    docker-ce-cli \
+    ffmpeg \
     gdb \
     git \
+    git-lfs \
     htop \
+    jq \
     minicom \
     nmap \
     python3-pip \
     shellcheck \
     silversearcher-ag \
+    snapd \
     tldr \
     trash-cli \
     tree \
+    vim \
+    virtualbox \
     wget \
     xclip \
     zsh
@@ -37,10 +65,22 @@ pip3 install -q \
     black \
     cmakelang \
     gita \
-    thefuck
+    thefuck \
+	vcstool
+
+# Install snaps
+sudo snap install blender  --classic
+sudo snap install slack  --classic
 
 # Setup ccache
 sudo /usr/sbin/update-ccache-symlinks
+
+# Setup git-lfs
+git-lfs install
+
+# Install FZF
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --key-bindings --completion --no-update-rc
 
 # Setup ZSH with oh-my-zsh and themes/plugins
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -59,5 +99,40 @@ dots checkout --force
 dots config --local status.showUntrackedFiles no
 dots config --local --add remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
 dots fetch
+
+#
+# Configure OS
+#
+gsettings set org.gnome.mutter dynamic-workspaces false 
+gsettings set org.gnome.desktop.wm.preferences num-workspaces 10 
+gsettings set org.gnome.shell.keybindings switch-to-application-1 [] 
+gsettings set org.gnome.shell.keybindings switch-to-application-2 [] 
+gsettings set org.gnome.shell.keybindings switch-to-application-3 [] 
+gsettings set org.gnome.shell.keybindings switch-to-application-4 [] 
+gsettings set org.gnome.shell.keybindings switch-to-application-5 [] 
+gsettings set org.gnome.shell.keybindings switch-to-application-6 [] 
+gsettings set org.gnome.shell.keybindings switch-to-application-7 [] 
+gsettings set org.gnome.shell.keybindings switch-to-application-8 [] 
+gsettings set org.gnome.shell.keybindings switch-to-application-9 [] 
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Super>1']" 
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Super>2']" 
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-3 "['<Super>3']" 
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-4 "['<Super>4']" 
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-5 "['<Super>5']" 
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-6 "['<Super>6']" 
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-7 "['<Super>7']" 
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-8 "['<Super>8']" 
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-9 "['<Super>9']" 
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-10 "['<Super>0']" 
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-1 "['<Super><Shift>1']" 
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-2 "['<Super><Shift>2']" 
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-3 "['<Super><Shift>3']" 
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-4 "['<Super><Shift>4']" 
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-5 "['<Super><Shift>5']" 
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-6 "['<Super><Shift>6']" 
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-7 "['<Super><Shift>7']" 
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-8 "['<Super><Shift>8']" 
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-9 "['<Super><Shift>9']" 
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-10 "['<Super><Shift>0']"
 
 echo "Done! Log out and back in again."
