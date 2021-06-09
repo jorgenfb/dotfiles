@@ -75,6 +75,8 @@ alias tfecho='rosrun tf tf_echo'
 # Shortcuts
 alias cd..="cd .."
 alias gd="cd ~/Downloads"
+alias gob="cd ~/dev/baktus"
+alias goc="cd ~/dev/motion_planning"
 
 # Play a complete
 alias playcomplete='paplay /usr/share/sounds/freedesktop/stereo/bell.oga'
