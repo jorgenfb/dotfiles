@@ -58,7 +58,9 @@ sudo apt-get install -qq \
     virtualbox \
     wget \
     xclip \
-    zsh
+    zsh \
+    terminator \
+    rar
 
 # Install Python packages
 pip3 install -q \
