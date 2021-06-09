@@ -1,3 +1,2 @@
 #!/bin/sh
-
-vboxmanage startvm URSim3.9.1.64192
+vboxmanage startvm URSim_VIRTUAL-3.15.0.106151
