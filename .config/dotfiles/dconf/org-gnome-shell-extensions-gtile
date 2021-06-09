@@ -1,0 +1,8 @@
+[/]
+animation=true
+auto-close=true
+autotile-main=['m']
+show-icon=true
+show-toggle-tiling=['<Super>KP_Enter']
+window-margin=2
+window-margin-fullscreen-enabled=true

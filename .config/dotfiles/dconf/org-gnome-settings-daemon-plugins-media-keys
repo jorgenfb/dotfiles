@@ -1,0 +1,6 @@
+[/]
+calculator=['Calculator']
+play=['AudioPlay']
+volume-down=['AudioLowerVolume']
+volume-mute=['AudioMute']
+volume-up=['AudioRaiseVolume']
