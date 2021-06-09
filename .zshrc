@@ -8,6 +8,7 @@ function source_if_found { [[ -f "$1" ]] && source "$1"; }
 
 source "${DOTFILES}/env-shared.sh"
 source_if_found "${DOTFILES}/env-machine-specific.sh"
+source_if_found "${EXTRA_SOURCE}"
 
 ############################################################
 # shell                                                    #
