@@ -26,7 +26,7 @@ sudo apt-get upgrade -qq
 sudo apt-get install -qq \
     apt-transport-https \
     build-essential \
-	bpython \
+    bpython \
     clang \
     clang-format \
     clang-tidy \
@@ -34,10 +34,10 @@ sudo apt-get install -qq \
     cmake \
     cmake-curses-gui \
     code \
-	containerd.io \
+    containerd.io \
     curl \
-	diodon \
-	docker-ce \
+    diodon \
+    docker-ce \
     docker-ce-cli \
     ffmpeg \
     gdb \
@@ -48,19 +48,22 @@ sudo apt-get install -qq \
     minicom \
     nmap \
     python3-pip \
+    ranger \
+    rar \
+    rofi \
     shellcheck \
     silversearcher-ag \
     snapd \
+    terminator \
     tldr \
     trash-cli \
     tree \
     vim \
     virtualbox \
     wget \
+    wmctrl \
     xclip \
-    zsh \
-    terminator \
-    rar
+    zsh
 
 # Install Python packages
 pip3 install -q \
@@ -68,7 +71,7 @@ pip3 install -q \
     cmakelang \
     gita \
     thefuck \
-	vcstool
+    vcstool
 
 # Install snaps
 sudo snap install blender  --classic

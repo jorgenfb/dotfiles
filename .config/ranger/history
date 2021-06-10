@@ -1,0 +1,50 @@
+open_with vlc
+open_with chrome
+open_with firefox
+deletey
+rename
+delete
+shell sudo dpkg -i %s
+open_with
+search Jaibot
+sort date
+search selv
+search csv
+shell terminator %s
+shell open %s
+shell -w open %s
+shell -w realpath %s
+search .config
+search config
+shell -p code %f
+shell -p code %s
+open_with code
+shell -p /usr/bin/code %s
+shell code %s
+shell code %f
+search task_manag
+search state
+search post
+search pdf
+search *.pdf
+search 1028
+search 1
+search aut
+search /tmop
+search rosout.log
+search simpl
+open_with q
+open_with vim
+rename tips-easy-to-create-peppa-pig-party-invitations-with-alluring-layout.psd
+rename tips-easy-to-create-peppa-pig-party-invitations-with-alluring-layout.png
+rename robomaker.min.mp4 
+search .baktus
+shell 
+
+shel
+so
+sort
+sort size
+sort so
+sort 
+open_with 
