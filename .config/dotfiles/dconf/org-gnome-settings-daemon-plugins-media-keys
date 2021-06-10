@@ -1,6 +1,17 @@
 [/]
 calculator=['Calculator']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
 play=['AudioPlay']
 volume-down=['AudioLowerVolume']
 volume-mute=['AudioMute']
 volume-up=['AudioRaiseVolume']
+
+[custom-keybindings/custom0]
+binding='<Alt>Return'
+command='terminator'
+name='Terminator'
+
+[custom-keybindings/custom1]
+binding='<Alt>space'
+command='rofi -show run'
+name='rofi'

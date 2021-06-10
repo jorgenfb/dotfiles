@@ -1,4 +1,5 @@
 [/]
+activate-window-menu=@as []
 move-to-workspace-1=['<Alt><Shift>1']
 move-to-workspace-10=['<Alt><Shift>0']
 move-to-workspace-2=['<Alt><Shift>2']

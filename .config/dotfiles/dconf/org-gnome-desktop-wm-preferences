@@ -1,2 +1,4 @@
 [/]
+mouse-button-modifier='<Alt>'
 num-workspaces=10
+resize-with-right-button=true
