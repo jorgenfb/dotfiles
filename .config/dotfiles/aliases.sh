@@ -85,7 +85,5 @@ alias playcomplete='paplay /usr/share/sounds/freedesktop/stereo/bell.oga'
 alias crt='~/dev/motion-planning/.devcontainer/docker_dev_shell.sh'
 alias baktus='~/dev/baktus/scripts/docker_dev_shell.sh'
 
-# Pick files for dropping into other application
-alias dddownloads="ls -t ~/Downloads | rofi -dmenu | sed 's!^!/home/jorgen/Downloads/!' | xargs -I % dragon --on-top --and-exit '%'"
-alias ddpictures="ls -t ~/Pictures | rofi -dmenu | sed 's!^!/home/jorgen/Pictures/!' | xargs -I % dragon --on-top --and-exit '%'"
-alias ddvideos="ls -t ~/Videos | rofi -dmenu | sed 's!^!/home/jorgen/Pictures/!' | xargs -I % dragon --on-top --and-exit '%'"
+# Quickly jump into a project
+alias goproject='cd $(find ~/dev -maxdepth 1 -type d | fzf)'

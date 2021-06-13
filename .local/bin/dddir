@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+ls -t $1 | rofi -dmenu -multi-select | sed "s!^!$1/!" | dragon --on-top --and-exit --stdin
