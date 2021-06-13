@@ -2,7 +2,7 @@
   name = Jørgen Borgesen
   email = joergen.borgesen@gmail.com
 [push]
-  default = simple
+	default = current
 [core]
   excludesfile = /home/jorgen/.gitignore
 [pull]
