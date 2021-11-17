@@ -20,7 +20,6 @@ sudo apt-get install -qq \
     cloc \
     cmake \
     cmake-curses-gui \
-    containerd.io \
     curl \
     diodon \
     ffmpeg \
