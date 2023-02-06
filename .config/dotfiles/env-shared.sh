@@ -33,3 +33,8 @@ if (( ${+EXTRA_SOURCE} )); then
   source "/opt/ros/$ROS_DISTRO/setup.zsh"
   source $EXTRA_SOURCE
 fi
+
+#############################################
+# Add AppImage folder
+#############################################
+PATH="${HOME}/apps:$PATH"

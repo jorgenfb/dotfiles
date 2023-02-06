@@ -8,7 +8,7 @@ function source_if_found { [[ -f "$1" ]] && source "$1"; }
 
 source "${DOTFILES}/env-shared.sh"
 source_if_found "${DOTFILES}/env-machine-specific.sh"
-source_if_found "${EXTRA_SOURCE}"
+source_if_found "devel/setup.zsh"
 
 ############################################################
 # shell                                                    #
@@ -25,6 +25,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=2"  # Green autosuggestion text.
 
 # I have systems that does not support thefuck command
 if [[ -z thefuck ]]; then
+  eval $(thefuck --alias)
 	plugins=(gitfast thefuck zsh-autosuggestions zsh-256color)
 else
 	plugins=(gitfast zsh-autosuggestions zsh-256color)
@@ -57,7 +58,7 @@ setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
 setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
-setopt HIST_BEEP                 # Beep when accessing nonexistent history.
+setopt HIST_BEEP                 # Beep when accessing nonexistent history.       
 
 
 ############################################################
@@ -94,3 +95,6 @@ zle -N down-line-or-local-history
 
 source /home/jorgen/.config/broot/launcher/bash/br
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

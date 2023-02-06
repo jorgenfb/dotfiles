@@ -11,7 +11,6 @@ alias e="$EDITOR"
 
 # dotfiles
 alias dots='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
 # python
 alias py='python3'
 
@@ -82,8 +81,16 @@ alias goc="cd ~/dev/motion_planning"
 alias playcomplete='paplay /usr/share/sounds/freedesktop/stereo/bell.oga'
 
 # Shortcuts to dev containers
-alias crt='~/dev/motion-planning/.devcontainer/docker_dev_shell.sh'
-alias baktus='~/dev/baktus/scripts/docker_dev_shell.sh'
+alias crt='cd ~/dev/kinova; mikkel --base-image jorgenfb/ros-dev:melodic --env-file .devcontainer/.env'
+alias baktus='cd ~/dev/baktus; mikkel --base-image jorgenfb/ros-dev:kinetic --env-file .devcontainer/.env'
 
 # Quickly jump into a project
 alias goproject='cd $(find ~/dev -maxdepth 1 -type d | fzf)'
+
+# Password helpers
+alias opsession='eval $(op signin team_nlink)'
+alias opjaibot="op item get bzhol57rzfuvpwodrgxtwsqcaa --field label=password | xclip -selection clipboard"
+alias oprockethouse="op item get ebvlw3vsq44rpl5sfn4er46ici --field label=password | xclip -selection clipboard"
+
+# Start chrome with a local proxy
+alias proxychromium='chromium --proxy-server="http://localhost:3128" & disown'

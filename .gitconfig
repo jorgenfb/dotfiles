@@ -13,11 +13,17 @@
 [alias]
   tree = log --oneline --decorate --all --graph
 [credential]
-  helper = store
+	helper = "!f() { /home/jorgen/.vscode-server/bin/97dec172d3256f8ca4bfb2143f3f76b503ca0534/node /tmp/vscode-remote-containers-af7429db0f90bdc918e53f7e835e068730295dd5.js $*; }; f"
 [url "https://git.asmgmt.hilti.com/"]
-  insteadOf = git@git.asmgmt.hilti.com:
+	insteadOf = git@git.asmgmt.hilti.com:
+[url "https://git.hilti.com/"]
+	insteadOf = git@git.hilti.com:
 [filter "lfs"]
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
   clean = git-lfs clean -- %f
+[init]
+	defaultBranch = main
+[rerere]
+	enabled = true
